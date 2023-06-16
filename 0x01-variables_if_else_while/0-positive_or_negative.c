@@ -1,11 +1,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-
+/* more headers goes there */
 /**
- * main - entry point
- *
- * Description: false or true validation
+ * main - Entry point
  *
  * Return : 0 (success)
 */
