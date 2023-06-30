@@ -9,7 +9,7 @@
 char *leet(char *c)
 {
         char *cp = c;
-        char Key[] = {'A', 'E', 'O', 'T', 'L'};
+        char key[] = {'A', 'E', 'O', 'T', 'L'};
         int value[] = {4, 3, 0, 7, 1};
         unsigned int i;
 
@@ -17,14 +17,14 @@ char *leet(char *c)
         {
                 for (i = 0; i < sizeof(key) / sizeof(char); i++)
                 {
-                        /*32 is the difference between lower case letters and apper case letters*/
+                        /* 32 is the difference between lowercase letters and uppercase letters */
                         if (*c == key[i] || *c == key[i] + 32)
                         {
-                                *c = 48 + value[i];
+                                *c = '0' + value[i];
                         }
                 }
                 c++;
         }
 
-        return (cp);
+        return cp;
 }
