@@ -40,6 +40,7 @@ return (check(s, 0, end - 1, end % 2));
  */
 
 
+
 int check(char *s, int start, int end, int mod)
 {
 
