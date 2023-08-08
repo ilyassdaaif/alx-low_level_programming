@@ -116,7 +116,7 @@ void print_osabi(Elf64_Ehdr h)
 		case ELFOSABI_TRU64:
 			printf("UNIX - TRU64");
 			break
-		default:
+		default :
 			print_osabi_more(h);
 			break;
 	}
