@@ -75,7 +75,6 @@ void print_version(Elf64_Ehdr h)
 		case EV_NONE:
 			printf("%s", "");
 		break;
-		break;
 	}
 	printf("\n");
 }
