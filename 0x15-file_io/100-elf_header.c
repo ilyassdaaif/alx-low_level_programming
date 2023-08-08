@@ -115,13 +115,12 @@ void print_osabi(Elf64_Ehdr h)
 		case ELFOSABI_TRU64:
 			printf("UNIX - TRU64");
 			break
-		default :
+		default:
 			print_osabi_more(h);
 			break;
 	}
 	printf("\n");
 }
-
 
 /**
  * print_osabi_more - prints ELF osabi more
@@ -150,7 +149,7 @@ void print_osabi_more(Elf64_Ehdr h)
 }
 
 /**
- * print_abiversion  - prints ELF ABI version
+ * print_abiversion - prints ELF ABI version
  * @h: the ELF header struct
  */
 void print_abiversion(Elf64_Ehdr h)
