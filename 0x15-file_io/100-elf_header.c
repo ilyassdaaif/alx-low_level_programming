@@ -258,7 +258,6 @@ int main(int ac, char **av)
     		close(fd);
     		exit(98);
 	}
-		dprintf(STDERR_FILENO, "Can't read from file: %s\n", av[1]), exit(98);
 	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
 			h.e_ident[3] == 'F')
 	{
