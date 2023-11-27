@@ -1,8 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <elf.h>
 
 void print_osabi_more(Elf64_Ehdr h);
@@ -24,24 +20,23 @@ void print_magic(Elf64_Ehdr h)
  * print_class - prints ELF class
  * @h: the ELF header struct
  */
-void print_class(Elf64_Ehdr h)
+void print_class(ELF64_Ehdr h)
 {
-    printf("  Class:                             ");
-    switch (h.e_ident[EI_CLASS])
-    {
-        case ELFCLASS64:
-            printf("ELF64");
-            break;
-        case ELFCLASS32:
-            printf("ELF32");
-            break;
-        case ELFCLASSNONE:
-            printf("none");
-            break;
-    }
-    printf("\n");
+	printf("  Class:                             ");
+	switch (h.e_ident[EI_CLASS])
+	{
+		case ELFCLASS64:
+			printf("ELF64");
+		break;
+		case ELFCLASS32:
+			printf("ELF32");
+		break;
+		case ELFCLASSNONE:
+			printf("none");
+		break;
+	}
+	printf("\n");
 }
-
 
 /**
  * print_data - prints ELF data
@@ -79,7 +74,6 @@ void print_version(Elf64_Ehdr h)
 		break;
 		case EV_NONE:
 			printf("%s", "");
-		break;
 		break;
 	}
 	printf("\n");
@@ -253,11 +247,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", av[1]), exit(98);
 	b = read(fd, &h, sizeof(h));
 	if (b < 1 || b != sizeof(h))
-	{
-    		dprintf(STDERR_FILENO, "Error reading ELF header from file: %s\n", av[1]);
-    		close(fd);
-    		exit(98);
-	}
+		dprintf(STDERR_FILENO, "Can't read from file: %s\n", av[1]), exit(98);
 	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
 			h.e_ident[3] == 'F')
 	{
