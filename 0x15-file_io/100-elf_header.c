@@ -253,6 +253,11 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Can't open file: %s\n", av[1]), exit(98);
 	b = read(fd, &h, sizeof(h));
 	if (b < 1 || b != sizeof(h))
+	{
+    		dprintf(STDERR_FILENO, "Error reading ELF header from file: %s\n", av[1]);
+    		close(fd);
+    		exit(98);
+	}
 		dprintf(STDERR_FILENO, "Can't read from file: %s\n", av[1]), exit(98);
 	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
 			h.e_ident[3] == 'F')
