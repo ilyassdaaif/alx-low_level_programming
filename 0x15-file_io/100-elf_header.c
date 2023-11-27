@@ -123,7 +123,6 @@ void print_osabi(Elf64_Ehdr h)
 	printf("\n");
 }
 
-
 /**
  * print_osabi_more - prints ELF osabi more
  * @h: the ELF header struct
