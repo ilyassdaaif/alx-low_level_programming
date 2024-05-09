@@ -10,23 +10,39 @@ void print_array(int *array, int left, int right) {
 }
 
 int recursive_search(int *array, int left, int right, int value) {
-    if (right >= left) {
-	int mid = left + (right - left) / 2;
-	print_array(array, left, right);
+    if (left > right) {
+	return (-1); // Element is not found
+    }
+	
+    print_array(array, left, right);
+    int mid = left + (right - left) / 2;
 
-	// Check if the found value is the first occurrence
-	if ((mid == left || value > array[mid - 1]) && array[mid] == value) {
+    // Check if the middle element is the target and also if it is the first occurrence
+    if ((array[mid] == value) {
+	 // Additional check if it is the the first occurrence
+	 if (mid == left || array[mid - 1] < value) {
 	    return mid;
-	} else if (value > array[mid]) {
-	    return recursive_search(array, mid + 1, right, value);
-	} else {
-	    return recursive_search(array, left, mid - 1, value);
-	}
+	 }
     }
 
-    return -1; // Value not found
+    // Continue searching to the left or right
+    if (array[mid] >= value) {
+    	return recursive_search(array, left, mid - 1, value);
+    } else {
+        return recursive_search(array, mid + 1, right, value);
+    }
 }
 
+/**
+ * advanced_binary - Searches for a value in a sorted
+ * array of integers.
+ * @array: A  pointer to the first element of the array to search in.
+ * @size: The number of elements in array.
+ * @value: The value to search for.
+ *
+ * Return: If value is not present in the array or if array is NULL, -1,
+ * Otherwise, the index where value is located.
+ */
 int advanced_binary(int *array, size_t size, int value) {
     if (array == NULL || size == 0) {
 	return -1;
@@ -34,7 +50,6 @@ int advanced_binary(int *array, size_t size, int value) {
     return recursive_search(array, 0, size - 1, value);
 }
 
-// Test the function
 int main(void) {
     int array[] = {
 	0, 1, 2, 5, 5, 6, 6, 7, 8, 9
