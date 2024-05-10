@@ -16,7 +16,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 	listint_t *node, *jump;
 
 	/* Check if the list is NULL or empty */
-	if (list == NULL || size = 0)
+	if (list == NULL || size == 0)
 		return (NULL);
 
 	step = 0;
