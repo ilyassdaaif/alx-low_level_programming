@@ -23,16 +23,16 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 		return (-1);
 
 	printf("Searching in array: ");
-	
+
 	/* Print the [sub]array being searched */
 	for (i = left; i < right; i++)
 
 		printf("%d, ", array[i]);
 
 	printf("%d\n", array[i]);
- 	/* Calculate the middle index */
- 	i = left + (right - left) / 2;
- 
+/* Calculate the middle index */
+i = left + (right - left) / 2;
+
 	/* If the middle element is the value and it's the first occurrence */
 	if (array[i] == value && (i == left || array[i - 1] != value))
 		/* Return the index */
